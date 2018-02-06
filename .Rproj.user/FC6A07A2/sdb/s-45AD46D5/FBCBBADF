@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "##Trying SOM in R with Kohonen Package and data from NBA Players \n\n#Installing and loading packages \npackageurl <- \"https://cran.r-project.org/src/contrib/Archive/kohonen/kohonen_2.0.19.tar.gz\"\ninstall.packages(packageurl, repos= NULL, type= \"source\")\nrequire(kohonen) #Link to the package: https://cran.r-project.org/web/packages/kohonen/kohonen.pdf\nrequire(RColorBrewer)\n\n#Getting the data\nlibrary(RCurl)\nNBA <- read.csv(text = getURL(\"https://raw.githubusercontent.com/clarkdatalabs/soms/master/NBA_2016_player_stats_cleaned.csv\"), \n                sep = \",\", header = T, check.names = FALSE)\n\n#To check the intire data glossary, go here: https://www.basketball-reference.com/about/glossary.html\n\nView(NBA)\nsummary(NBA)\n## NBA.measures1: \n# FTA: Free Throw Attempts; 2PA: 2-Point Field Goal Attempts; 3-Point Field Goal Attempts   \nNBA.measures1 <- c(\"FTA\", \"2PA\", \"3PA\")\nsummary(NBA.measures1)\nscale(NBA[NBA.measures1])\n\nNBA_col <- NBA[c(-1, -2, -3, -5)]\nNBA_matrix<- as.matrix(NBA_col)\nView(NBA_matrix)\n\nNBA.SOM1 <- som(scale(NBA[NBA.measures1]), grid = somgrid(3, 2, \"rectangular\"))\nplot(NBA.SOM1)\n\n#Training the model\n\nsom_grid <- somgrid(xdim = 20, ydim=20, topo=\"hexagonal\")\n\n\nsom_model <- som(NBA_matrix, \n                 grid=som_grid, \n                 rlen=100, \n                 alpha=c(0.05,0.01), \n                 keep.data = TRUE,\n                 n.hood=\"square\" )\n#Viz\n\nplot(NBA.SOM1, type=\"changes\", main = \"SOM neighbour distances\")\nplot(NBA.SOM1, type=\"codes\", main = \"SOM neighbour distances\")\n\nplot(NBA_matrix, type=\"dist.neighbours\",main = \"mapping plot\")\n\n",
+    "created" : 1517760461707.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4239566627",
+    "id" : "FBCBBADF",
+    "lastKnownWriteTime" : 1517953740,
+    "last_content_update" : 1517953740292,
+    "path" : "~/Documents/GitHub/SOM/SOM/som.R",
+    "project_path" : "som.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

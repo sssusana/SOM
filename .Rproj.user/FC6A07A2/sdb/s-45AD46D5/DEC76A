@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1517952523423.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "DEC76A",
+    "lastKnownWriteTime" : 0,
+    "last_content_update" : 1517952523423,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "4C9FB4BD",
+        "caption" : "NBA_matrix",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=NBA_matrix&cache_key=4C9FB4BD",
+        "displayedObservations" : "503",
+        "environment" : "",
+        "object" : "NBA_matrix",
+        "preview" : "0",
+        "totalObservations" : "503",
+        "variables" : "25"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}
